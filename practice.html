@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.js" defer></script>
+</head>
+<body>
+  
+  <div x-data="{ open: false }" x-cloak>
+    <button @click="open = !open">Toggle</button>
+    <p x-show="open">This is visible when open is true</p>
+  </div>
+  
+  
+  <div x-data="{anyVar: true}">
+        <button @click="anyVar=!anyVar"> click me!</button>
+        <span x-show="anyVar">content will see only if open == true</span>
+    </div>
+     
+
+
+    <div class="tdds-field tdds:mb-4" data-inverse="false">
+        <div class="tdds-field__track " data-active="false" :data-complete="isEdit && iscarrierDetailsSelected" data-disabled="false">
+          <label for="mq-customer-carrier" class="tdds-field__label"
+            aria-label="${properties.carrierAccessibilityText}">carrier</label>
+          <select id="mq-customer-carrier" name="select-name" x-model="selectedCarrier"
+            aria-describedby="select-id-optional" class="tdds-field__select ">
+            <option value="" disabled></option> <template x-for="carrier in carrierDetails" :key="carrier.fieldId">
+              <option :value="carrier.fieldName" x-text="carrier.fieldName"></option>
+            </template>
+          </select>
+        </div>
+    </div>
+
+</body>
+</html> 
+
